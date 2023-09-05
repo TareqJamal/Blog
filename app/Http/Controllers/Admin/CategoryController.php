@@ -18,7 +18,7 @@ class CategoryController extends Controller
     public function index()
     {
         if(\request()->ajax()) {
-            $categories = Category::all();
+            $categories = Category::where('parent_id',null)->get();
             return DataTables::of($categories)
                 ->addIndexColumn()
                 ->editColumn('image','Admin.Categories.Datatable.image' )
@@ -102,11 +102,13 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function delete(Request $request)
+    public function destroy(Request $request)
     {
         Category::destroy($request->category_id);
         return response()->json(['message'=>'sucess']);
     }
+
+
     public function status($id)
     {
        $category = Category::findorfail($id);
@@ -120,7 +122,6 @@ class CategoryController extends Controller
            $category->status = CategoryStatus::Active;
            $category->save();
        }
-
         return response()->json();
 
     }

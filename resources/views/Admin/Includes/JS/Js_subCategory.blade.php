@@ -3,7 +3,7 @@
 
     $(document).ready(function ()
     {
-        $('#category_form').on('submit',function (e)
+        $('#sub-category_form').on('submit',function (e)
         {
             var url = $(this).attr('data-action');
             e.preventDefault();
@@ -17,8 +17,35 @@
                 processData: false,
                 success: function(responce)
                 {
-                    toastr.success('Category Added successfully!');
-                    window.location.href = '/categories';
+                    toastr.success('New Sub Category Added successfully!');
+                    window.location.href = '/sub-categories';
+                },
+                error: function(response) {
+                    console.log(response);
+                }
+            })
+        })
+    });
+
+
+    $(document).ready(function ()
+    {
+        $('#sub_category_form_edit').on('submit',function (e)
+        {
+            var url = $(this).attr('data-action');
+            e.preventDefault();
+            $.ajax({
+                url : url,
+                method : "POST",
+                data : new FormData(this),
+                dataType: 'JSON',
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function(responce)
+                {
+                    toastr.success('Sub Category Edited successfully!');
+                    window.location.href = '/sub-categories';
                 },
                 error: function(response) {
                     console.log(response);
@@ -27,20 +54,19 @@
         })
 
     });
-</script>
 
-<script>
     var myTable;
     var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
     $(function () {
         myTable = $('.table').DataTable({
             processing: true,
             serverSide: true,
-            ajax:"{{ route('categories.index') }}",
+            ajax:"{{ route('sub-categories.index') }}",
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'name',name:'name'},
                 {data: 'status',name:'status'},
+                {data: 'parent_id',name:'status'},
                 {data: 'image', name: 'image'},
                 {data: 'action', name: 'action',
                     orderable: false,
@@ -48,50 +74,15 @@
             ]
         });
     });
-</script>
-<script>
 
-    $(document).ready(function ()
-    {
-        $('#category_form_edit').on('submit',function (e)
-        {
-            var url = $(this).attr('data-action');
-            e.preventDefault();
-            $.ajax({
-                url : url,
-                method : "POST",
-                data : new FormData(this),
-                dataType: 'JSON',
-                contentType: false,
-                cache: false,
-                processData: false,
-                success: function(responce)
-                {
-                    toastr.success('Category Edited successfully!');
-                    window.location.href = '/categories';
-                },
-                error: function(response) {
-                    console.log(response);
-                }
-            })
-        })
-
-    });
-</script>
-<script>
-    $(document).on('click', '#btn', function(e) {
-        e.preventDefault()
-        var category_id = $(this).val();
-        $('#confirmModal').modal('show');
-        $('#category_id').val(category_id);
-        $('#delete_form').attr('data-action', "{{ route('sub-categories.destroy', '') }}" + "/" + category_id);
-    })
 
     $(document).on('click', '.btn_status', function(e) {
         e.preventDefault()
         var category_id = $(this).val();
+        var url = "{{ route('sub-categories.show', ':id') }}";
+        url = url.replace(':id', category_id);
         $.ajax({
-            url : 'categories/status/'+ category_id,
+            url :  url,
             method : "GET",
             dataType: 'JSON',
             contentType: false,
@@ -106,6 +97,14 @@
                 console.log(response);
             }
         })
+    })
+
+    $(document).on('click', '.delete-btn', function(e) {
+        e.preventDefault()
+        var subcategory_id = $(this).val();
+        $('#confirmModal').modal('show');
+        $('#subcategory_id').val(subcategory_id);
+        $('#delete_form').attr('data-action', "{{ route('sub-categories.destroy', '') }}" + "/" + subcategory_id);
     })
 
     $(document).ready(function ()
@@ -125,7 +124,7 @@
                 success: function(responce)
                 {
                     $('#confirmModal').modal('hide');
-                    toastr.success('Category Deleted successfully!');
+                    toastr.success('Sub Category Deleted successfully!');
                     myTable.ajax.reload();
                 },
                 error: function(response) {
@@ -136,4 +135,3 @@
 
     });
 </script>
-

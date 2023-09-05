@@ -77,15 +77,31 @@
                             <span class="has-icon">
                                 <i class="icon-message2"></i>
                             </span>
-                            <span class="nav-title">Categories</span>
-                            <span class="badge">{{\App\Models\Category::all()->count()}}</span>
+                            <span class="nav-title"> Main Categories</span>
+                            <span class="badge">{{\App\Models\Category::where('parent_id',null)->count()}}</span>
                         </a>
                         <ul aria-expanded="false">
                             <li>
                                 <a href='{{route('categories.index')}}'>All Categories</a>
                             </li>
                             <li>
-                                <a href='{{route('categories.create')}}'>Create Categories</a>
+                                <a href='{{route('categories.create')}}'>Create Category</a>
+                            </li>
+                        </ul>
+                    </li> <li>
+                        <a href="#" class="has-arrow" aria-expanded="false">
+                            <span class="has-icon">
+                                <i class="icon-message2"></i>
+                            </span>
+                            <span class="nav-title"> Sub Categories</span>
+                            <span class="badge">{{\App\Models\Category::where('parent_id','!=' ,null)->count()}}</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li>
+                                <a href='{{route('sub-categories.index')}}'>All Sub Categories</a>
+                            </li>
+                            <li>
+                                <a href='{{route('sub-categories.create')}}'>Create Sub Category</a>
                             </li>
                         </ul>
                     </li>

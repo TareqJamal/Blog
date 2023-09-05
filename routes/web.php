@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminContoller;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\LaravelLocalization;
@@ -21,6 +22,18 @@ use Mcamara\LaravelLocalization\LaravelLocalization;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::controller(AdminContoller::class)->group(function ()
+{
+    Route::get('/dashboard','getDashboard')->name('getDashboard');
+});
+
+Route::resource('categories',CategoryController::class);
+//Route::Post('categories/delete',[CategoryController::class,'delete'])->name('categories.delete');
+Route::Get('categories/status/{id}',[CategoryController::class,'status'])->name('categories.status');
+
+Route::resource('sub-categories',SubCategoryController::class);
+
+
 Route::group(
     [
         'prefix' => (new Mcamara\LaravelLocalization\LaravelLocalization)->setLocale(),
@@ -28,14 +41,7 @@ Route::group(
     ],
     function()
     {
-        Route::controller(AdminContoller::class)->group(function ()
-        {
-            Route::get('/dashboard','getDashboard')->name('getDashboard');
-        });
 
-        Route::resource('categories',CategoryController::class);
-        Route::Post('categories/delete',[CategoryController::class,'delete'])->name('categories.delete');
-        Route::Get('categories/status/{id}',[CategoryController::class,'status'])->name('categories.status');
         /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
         Route::get('/', function()
         {

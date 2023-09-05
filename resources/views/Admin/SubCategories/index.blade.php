@@ -1,6 +1,6 @@
 @extends('Admin.Layouts.index')
 @section('title')
-    Categories
+   Sub Categories
 @endsection
 @section('main-content')
     <table id="Table" class="table table-bordered">
@@ -9,6 +9,7 @@
             <th>Category No</th>
             <th>Category Name</th>
             <th>Category Status</th>
+            <th>Main Category</th>
             <th>Category Image</th>
             <th>Actions</th>
         </tr>
@@ -20,17 +21,17 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Delete Category</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Delete SubCategory</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form id="delete_form" data-action="{{ route('categories.destroy', '') }}" method="Post">
+                <form id="delete_form" data-action="{{ route('sub-categories.destroy', '') }}" method="Post">
                     @csrf
                     @method('Delete')
                     <div class="modal-body">
-                        <input type="text" hidden name="category_id" id="category_id">
-                        Are You sure to delete this category with all its posts and its sub categories ?
+                        <input type="text" hidden name="category_id" id="subcategory_id">
+                        Are You sure to delete this category with all its posts  ?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>
@@ -43,4 +44,4 @@
 
 @endsection
 
-@include('Admin.Includes.JS.Js_Category')
+@include('Admin.Includes.JS.Js_subCategory')
