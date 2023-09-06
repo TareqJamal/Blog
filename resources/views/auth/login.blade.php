@@ -1,47 +1,133 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from bootstrap.gallery/elite-admin-dashboard/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Jun 2021 22:36:04 GMT -->
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Elite Admin Panel" />
+    <meta name="keywords" content="Login, Unify Login, Admin, Admin Dashboard, Dashboard, Bootstrap4, Sass, CSS3, HTML5, Responsive Dashboard, Responsive Admin Template, Admin Template, Best Admin Template, Bootstrap Template, Themeforest" />
+    <meta name="author" content="Bootstrap Gallery" />
+    <link rel="shortcut icon" href="{{asset('Admin')}}/img/favicon.ico" />
+    <title> Dashboard - Login</title>
+
+    <!--
+        **********************
+        **********************
+        Common CSS files
+        **********************
+        **********************
+    -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{asset('Admin')}}/css/bootstrap.min.css" />
+
+    <!-- Icomoon Icons CSS -->
+    <link rel="stylesheet" href="{{asset('Admin')}}/fonts/icomoon/icomoon.css" />
+
+    <!-- Master CSS -->
+    <link rel="stylesheet" href="{{asset('Admin')}}/css/main.css" />
+
+</head>
+
+<body>
+
+<!-- Container start -->
+<div class="container">
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
+        <div class="row justify-content-md-center">
+            <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12">
+                <div class="login-screen">
+                    <div class="login-box">
+                        <a href="#" class="login-logo">
+                            <img src="{{asset('Admin')}}/img/logo.png" alt="Elite Admin Dashboard" />
+                        </a>
+                        <div class="form-group">
+                            <x-input-label for="email" :value="__('Email')" />
+                            <x-text-input id="email" class="form-control" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+{{--                            <input type="text" class="form-control" placeholder="Username" />--}}
+                        </div>
+                        <div class="form-group">
+                            <x-input-label for="password" :value="__('Password')" />
+                            <x-text-input id="password" class="form-control"
+                                          type="password"
+                                          name="password"
+                                          required autocomplete="current-password" />
+                            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+{{--                            <input type="password" class="form-control" placeholder="Password" />--}}
+                        </div>
+                        <div class="flex items-center justify-end mt-4">
+                            @if (Route::has('password.request'))
+                                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
+                                    {{ __('Forgot your password?') }}
+                                </a>
+                            @endif
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ml-3">
-                {{ __('Log in') }}
-            </x-primary-button>
+                            <x-primary-button class="ml-3">
+                                {{ __('Log in') }}
+                            </x-primary-button>
+                        </div>
+                        <div class="mt-4">
+                            <a href="signup.html" class="additional-link">Not Registered? <span>Create an Account</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </form>
-</x-guest-layout>
+
+</div>
+<!-- Container end -->
+
+</body>
+
+<!-- Mirrored from bootstrap.gallery/elite-admin-dashboard/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Jun 2021 22:36:04 GMT -->
+</html>
+
+
+{{--<x-guest-layout>--}}
+{{--    <!-- Session Status -->--}}
+{{--    <x-auth-session-status class="mb-4" :status="session('status')" />--}}
+
+{{--    <form method="POST" action="{{ route('login') }}">--}}
+{{--        @csrf--}}
+
+{{--        <!-- Email Address -->--}}
+{{--        <div>--}}
+{{--            <x-input-label for="email" :value="__('Email')" />--}}
+{{--            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />--}}
+{{--            <x-input-error :messages="$errors->get('email')" class="mt-2" />--}}
+{{--        </div>--}}
+
+{{--        <!-- Password -->--}}
+{{--        <div class="mt-4">--}}
+{{--            <x-input-label for="password" :value="__('Password')" />--}}
+
+{{--            <x-text-input id="password" class="block mt-1 w-full"--}}
+{{--                            type="password"--}}
+{{--                            name="password"--}}
+{{--                            required autocomplete="current-password" />--}}
+
+{{--            <x-input-error :messages="$errors->get('password')" class="mt-2" />--}}
+{{--        </div>--}}
+
+{{--        <!-- Remember Me -->--}}
+
+{{--        <div class="flex items-center justify-end mt-4">--}}
+{{--            @if (Route::has('password.request'))--}}
+{{--                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">--}}
+{{--                    {{ __('Forgot your password?') }}--}}
+{{--                </a>--}}
+{{--            @endif--}}
+
+{{--            <x-primary-button class="ml-3">--}}
+{{--                {{ __('Log in') }}--}}
+{{--            </x-primary-button>--}}
+{{--        </div>--}}
+{{--    </form>--}}
+{{--</x-guest-layout>--}}

@@ -124,35 +124,25 @@
                     <li class="dropdown">
                         <a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
                             <span class="avatar">ER<span class="status online"></span></span>
-                            <span class="user-name">Emily Russell</span>
+                            <span class="user-name">{{\Illuminate\Support\Facades\Auth::user()->name}}</span>
                             <i class="icon-chevron-small-down downarrow"></i>
                         </a>
                         <div class="dropdown-menu lg dropdown-menu-right" aria-labelledby="userSettings">
                             <div class="admin-settings">
                                 <ul class="admin-settings-list">
-                                    <li>
-                                        <a href="profile.html">
-                                            <span class="icon icon-face"></span>
-                                            <span class="text-name">My Profile</span>
-                                            <span class="badge badge-success">75% Complete</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="icon icon-notifications_none"></span>
-                                            <span class="text-name">Notifications</span>
-                                            <span class="badge badge-orange">12</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="icon icon-av_timer"></span>
-                                            <span class="text-name">Secure Account</span>
-                                        </a>
-                                    </li>
-                                </ul>
+
+
+                                    <!-- Authentication -->
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <x-dropdown-link :href="route('logout')"
+                                                         onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                            <a  class="btn btn-primary">Logout</a>
+                                        </x-dropdown-link>
+                                    </form>
                                 <div class="actions">
-                                    <a href="login.html" class="btn btn-primary">Logout</a>
+
                                 </div>
                             </div>
                         </div>
