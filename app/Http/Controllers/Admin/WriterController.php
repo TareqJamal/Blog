@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\User;
 use App\Models\Writer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\DataTables;
 
 class WriterController extends Controller
@@ -58,7 +59,7 @@ class WriterController extends Controller
         if($request->password === $request->confirmPassword)
         {
             $email = $request->email;
-            $emailCheck = Writer::where('email')->exists();
+            $emailCheck = Writer::where('email',$email)->exists();
             if($emailCheck)
             {
                 return response()->json(['message'=>'Email is Already Exited']);
@@ -72,6 +73,8 @@ class WriterController extends Controller
                     $imageName = $image->getClientOriginalName().uniqid();
                     $imageLocation = $image->move('writerImages',$imageName);
                     $insertWriter['image'] = $imageLocation;
+                    $hashPassword = Hash::make($request->password);
+                    $insertWriter['password'] = $hashPassword;
                     $data = Writer::create($insertWriter);
                     return response()->json(['added'=>'Writer Added Successfully']);
                 }

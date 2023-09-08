@@ -147,6 +147,7 @@
                             </li>
                         </ul>
                     </li>
+                    @if(\Illuminate\Support\Facades\Auth::guard('web')->check())
                     <li>
                         <a href="#" class="has-arrow" aria-expanded="false">
                             <span class="has-icon">
@@ -164,6 +165,7 @@
                             </li>
                         </ul>
                     </li>
+                    @endif
                     <li>
                         <a href="widgets.html">
                             <span class="has-icon">

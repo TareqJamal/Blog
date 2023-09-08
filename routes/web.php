@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminContoller;
 use App\Http\Controllers\Admin\AdminCrudController;
+use App\Http\Controllers\Admin\WriterAuthController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\TagController;
@@ -27,7 +28,7 @@ Route::get('/', function () {
 });
 Route::controller(AdminContoller::class)->group(function ()
 {
-    Route::get('/dashboard','getDashboard')->middleware(['auth', 'verified'])->name('getDashboard');
+    Route::get('/dashboard','getDashboard')->middleware(['auth:writer,web', 'verified'])->name('getDashboard');
 });
 
 Route::resource('categories',CategoryController::class);

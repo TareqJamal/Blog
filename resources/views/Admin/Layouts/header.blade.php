@@ -124,7 +124,13 @@
                     <li class="dropdown">
                         <a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
                             <span class="avatar">ER<span class="status online"></span></span>
-                            <span class="user-name">{{\Illuminate\Support\Facades\Auth::user()->name}}</span>
+                            <span class="user-name">
+                                @if(\Illuminate\Support\Facades\Auth::guard('web')->check())
+                                    {{\Illuminate\Support\Facades\Auth::guard('web')->user()->name}}
+                                @elseif(\Illuminate\Support\Facades\Auth::guard('writer')->check())
+                                    {{\Illuminate\Support\Facades\Auth::guard('writer')->user()->name}}
+                                @endif
+                            </span>
                             <i class="icon-chevron-small-down downarrow"></i>
                         </a>
                         <div class="dropdown-menu lg dropdown-menu-right" aria-labelledby="userSettings">
