@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminCrudController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\Admin\WriterController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\LaravelLocalization;
@@ -35,6 +36,7 @@ Route::Get('categories/status/{id}',[CategoryController::class,'status'])->name(
 Route::resource('sub-categories',SubCategoryController::class);
 Route::resource('tags',TagController::class);
 Route::resource('admins',AdminCrudController::class);
+Route::resource('writers',WriterController::class);
 
 //Route::group(
 //    [

@@ -140,13 +140,13 @@
                         </a>
                         <ul aria-expanded="false">
                             <li>
-                                <a href='{{route('tags.index')}}'>All Writers</a>
+                                <a href='{{route('writers.index')}}'>All Writers</a>
                             </li>
                             <li>
-                                <a href='{{route('tags.create')}}'>Add Writer</a>
+                                <a href='{{route('writers.create')}}'>Add Writer</a>
                             </li>
                         </ul>
-                    </li>>
+                    </li>
                     <li>
                         <a href="#" class="has-arrow" aria-expanded="false">
                             <span class="has-icon">

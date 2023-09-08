@@ -1,15 +1,16 @@
 @extends('Admin.Layouts.index')
 @section('title')
-    Admins
+    Writers
 @endsection
 @section('main-content')
     <table id="Table" class="table table-bordered">
         <thead>
         <tr>
             <th>Admin No</th>
-            <th>Admin Name</th>
-            <th>Admin Email</th>
-            <th>Admin Image</th>
+            <th>Writer Name</th>
+            <th>Writer Email</th>
+            <th>Writer Image</th>
+            <th>Writer Status</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -20,17 +21,17 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Delete Admin</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Writer</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form id="delete_form" data-action="{{ route('admins.destroy', '') }}" method="Post">
+                <form id="delete_form" data-action="{{ route('writers.destroy', '') }}" method="Post">
                     @csrf
                     @method('Delete')
                     <div class="modal-body">
-                        <input type="text" hidden name="admin_id" id="admin_id">
-                        Are You sure to delete this Admin ?
+                        <input type="text" hidden name="writer_id" id="writer_id">
+                        Are You sure to delete this Writer ?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>
@@ -42,4 +43,4 @@
     </div>
 
 @endsection
-@include('Admin.Includes.JS.Js_Admin')
+@include('Admin.Includes.JS.Js_Writer')
