@@ -68,7 +68,7 @@
                                 <a href='contact3.html'>All Posts</a>
                             </li>
                             <li>
-                                <a href='contact4.html'>Create Post</a>
+                                <a href='contact4.html'>Add Post</a>
                             </li>
                         </ul>
                     </li>
@@ -85,10 +85,11 @@
                                 <a href='{{route('categories.index')}}'>All Categories</a>
                             </li>
                             <li>
-                                <a href='{{route('categories.create')}}'>Create Category</a>
+                                <a href='{{route('categories.create')}}'>Add Category</a>
                             </li>
                         </ul>
-                    </li> <li>
+                    </li>
+                    <li>
                         <a href="#" class="has-arrow" aria-expanded="false">
                             <span class="has-icon">
                                 <i class="icon-message2"></i>
@@ -101,7 +102,7 @@
                                 <a href='{{route('sub-categories.index')}}'>All Sub Categories</a>
                             </li>
                             <li>
-                                <a href='{{route('sub-categories.create')}}'>Create Sub Category</a>
+                                <a href='{{route('sub-categories.create')}}'>Add Sub Category</a>
                             </li>
                         </ul>
                     </li>
@@ -117,7 +118,7 @@
                                 <a href='{{route('tags.index')}}'>All Tags</a>
                             </li>
                             <li>
-                                <a href='{{route('tags.create')}}'>Create Tags</a>
+                                <a href='{{route('tags.create')}}'>Add Tag</a>
                             </li>
                         </ul>
                     </li>
@@ -131,22 +132,37 @@
                         </a>
                     </li>
                     <li>
-                        <a href="widgets.html">
+                        <a href="#" class="has-arrow" aria-expanded="false">
                             <span class="has-icon">
-                                <i class="icon-style"></i>
+                                <i class="icon-broken_image"></i>
                             </span>
-                            <span class="nav-title">Writer</span>
-                            <span class="badge orange">20+</span>
+                            <span class="nav-title">Writers</span>
                         </a>
-                    </li>
+                        <ul aria-expanded="false">
+                            <li>
+                                <a href='{{route('tags.index')}}'>All Writers</a>
+                            </li>
+                            <li>
+                                <a href='{{route('tags.create')}}'>Add Writer</a>
+                            </li>
+                        </ul>
+                    </li>>
                     <li>
-                        <a href="{{route('admins.index')}}">
+                        <a href="#" class="has-arrow" aria-expanded="false">
                             <span class="has-icon">
-                                <i class="icon-style"></i>
+                                <i class="icon-message2"></i>
                             </span>
-                            <span class="nav-title">Admins</span>
-                            <span class="badge orange">20+</span>
+                        <span class="nav-title">Admins</span>
+                        <span class="badge orange">{{\App\Models\User::all()->count()}}</span>
                         </a>
+                        <ul aria-expanded="false">
+                            <li>
+                                <a href='{{route('admins.index')}}'>All Admins</a>
+                            </li>
+                            <li>
+                                <a href='{{route('admins.create')}}'>Add Admin</a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="widgets.html">
