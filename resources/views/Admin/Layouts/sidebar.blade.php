@@ -167,7 +167,7 @@
                     </li>
                     @endif
                     <li>
-                        <a href="widgets.html">
+                        <a href="{{route('website-settings.index')}}">
                             <span class="has-icon">
                                 <i class="icon-style"></i>
                             </span>
@@ -175,7 +175,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="widgets.html">
+                        <a href="{{route('dashboard-settings.index')}}">
                             <span class="has-icon">
                                 <i class="icon-style"></i>
                             </span>

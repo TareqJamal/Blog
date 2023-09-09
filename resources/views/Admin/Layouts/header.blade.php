@@ -123,7 +123,13 @@
                     </li>
                     <li class="dropdown">
                         <a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
-                            <span class="avatar">ER<span class="status online"></span></span>
+                            <span class="avatar">
+                               @if(\Illuminate\Support\Facades\Auth::guard('web')->check())
+                                   <img src="{{\Illuminate\Support\Facades\Auth::guard('web')->user()->image}}" width="40px" height="40px">
+                                @elseif(\Illuminate\Support\Facades\Auth::guard('writer')->check())
+                                    <img src="{{\Illuminate\Support\Facades\Auth::guard('writer')->user()->image}}" width="40px" height="40px">
+                                @endif
+                                <span class="status online"></span></span>
                             <span class="user-name">
                                 @if(\Illuminate\Support\Facades\Auth::guard('web')->check())
                                     {{\Illuminate\Support\Facades\Auth::guard('web')->user()->name}}

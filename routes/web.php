@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\AdminContoller;
 use App\Http\Controllers\Admin\AdminCrudController;
+use App\Http\Controllers\Admin\DashboardSettingController;
+use App\Http\Controllers\Admin\WebSiteSettingController;
 use App\Http\Controllers\Admin\WriterAuthController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SubCategoryController;
@@ -38,6 +40,8 @@ Route::resource('sub-categories',SubCategoryController::class);
 Route::resource('tags',TagController::class);
 Route::resource('admins',AdminCrudController::class);
 Route::resource('writers',WriterController::class);
+Route::resource('dashboard-settings',DashboardSettingController::class);
+Route::resource('website-settings',WebSiteSettingController::class);
 
 //Route::group(
 //    [
