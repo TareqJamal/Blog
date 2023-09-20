@@ -9,6 +9,7 @@
             <th>Category No</th>
             <th>Category Name</th>
             <th>Category Status</th>
+            <th>Category Description</th>
             <th>Category Image</th>
             <th>Actions</th>
         </tr>

@@ -10,7 +10,7 @@ use Yajra\DataTables\Facades\DataTables;
 class SubCategoryController extends Controller
 {
     public $path = 'Admin.SubCategories.';
-    public $sub_category_data = ['name', 'image', 'parent_id'];
+    public $sub_category_data = ['name','description','image', 'parent_id'];
 
     /**
      * Display a listing of the resource.

@@ -11,7 +11,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 class CategoryController extends Controller
 {
     public $path = 'Admin.Categories.';
-    public $category_data = ['name','image'];
+    public $category_data = ['name','description','image'];
     /**
      * Display a listing of the resource.
      */
@@ -94,7 +94,6 @@ class CategoryController extends Controller
            $category->update($updated_data);
        }
        $category->update($updated_data);
-
        return redirect()->route('categories.index');
 
     }

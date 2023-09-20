@@ -8,6 +8,7 @@
         <tr>
             <th>Category No</th>
             <th>Category Name</th>
+            <th>Category Description</th>
             <th>Category Status</th>
             <th>Main Category</th>
             <th>Category Image</th>

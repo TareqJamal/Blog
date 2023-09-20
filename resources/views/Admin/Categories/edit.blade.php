@@ -19,6 +19,9 @@
                                 <input type="text" value="{{$category->name}}" class="form-control" id="name" name="name" placeholder="Name" required>
                             </div>
                             <div class="form-group">
+                                <textarea   class="form-control" id="description" name="description" placeholder="description" required>{{$category->description}}</textarea>
+                            </div>
+                            <div class="form-group">
                                 <img src="{{asset("").$category->image}}" width="100px" height="100px" >
                             </div>
                             <div class="form-group">

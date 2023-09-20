@@ -19,6 +19,11 @@
                                 <input type="text" value="{{$sub_category->name}}" class="form-control" id="name" name="name" placeholder="Name" required>
                             </div>
                             <div class="form-group">
+                                <label>Description:</label>
+                                <textarea class="form-control" id="description" name="description" placeholder="Description"
+                                          required>{{$sub_category->description}} </textarea>
+                            </div>
+                            <div class="form-group">
                                 <label>Main Category :</label>
                                 <select class="form-control" name="parent_id">
                                     @foreach($main_categories as $main_category)

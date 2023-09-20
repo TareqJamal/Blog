@@ -3,6 +3,9 @@
 use App\Http\Controllers\Admin\AdminContoller;
 use App\Http\Controllers\Admin\AdminCrudController;
 use App\Http\Controllers\Admin\DashboardSettingController;
+use App\Http\Controllers\Admin\ImagePostController;
+use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\TagsPostController;
 use App\Http\Controllers\Admin\WebSiteSettingController;
 use App\Http\Controllers\Admin\WriterAuthController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -10,6 +13,8 @@ use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\WriterController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Website\CommentController;
+use App\Http\Controllers\Website\SiteController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\LaravelLocalization;
 
@@ -42,6 +47,17 @@ Route::resource('admins',AdminCrudController::class);
 Route::resource('writers',WriterController::class);
 Route::resource('dashboard-settings',DashboardSettingController::class);
 Route::resource('website-settings',WebSiteSettingController::class);
+Route::resource('posts',PostController::class);
+Route::resource('images-post',ImagePostController::class);
+Route::resource('tags-post',TagsPostController::class);
+Route::controller(SiteController::class)->group(function (){
+    Route::get('/home','home')->name('home');
+    Route::get('/MainCategory/{id}','mainCategory')->name('mainCategory');
+    Route::get('/SubCategory/{id}','subCategory')->name('subCategory');
+    Route::get('/SinglePost/{id}','SinglePost')->name('SinglePost');
+});
+Route::resource('comments',CommentController::class);
+
 
 //Route::group(
 //    [

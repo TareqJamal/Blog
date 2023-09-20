@@ -41,6 +41,7 @@
                 {data: 'id', name: 'id'},
                 {data: 'name',name:'name'},
                 {data: 'status',name:'status'},
+                {data: 'description',name:'description'},
                 {data: 'image', name: 'image'},
                 {data: 'action', name: 'action',
                     orderable: false,

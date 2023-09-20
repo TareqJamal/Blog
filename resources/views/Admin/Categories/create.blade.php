@@ -18,6 +18,9 @@
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
                             </div>
                             <div class="form-group">
+                                <textarea  class="form-control" id="description" name="description" placeholder="description" required></textarea>
+                            </div>
+                            <div class="form-group">
                                 <div class="custom-file">
                                     <input type="file" name="image" class="custom-file-input" id="customFile">
                                     <label class="custom-file-label custom-file-label-primary" for="customFile2">Choose file</label>

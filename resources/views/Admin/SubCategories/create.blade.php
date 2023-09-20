@@ -21,6 +21,11 @@
                                        required>
                             </div>
                             <div class="form-group">
+                                <label>Description:</label>
+                                <textarea class="form-control" id="description" name="description" placeholder="Description"
+                                    required> </textarea>
+                            </div>
+                            <div class="form-group">
                                 <label>Main Category :</label>
                                 <select class="form-control" name="parent_id">
                                     <option>Choose</option>

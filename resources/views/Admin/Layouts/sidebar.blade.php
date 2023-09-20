@@ -65,10 +65,10 @@
                         </a>
                         <ul aria-expanded="false">
                             <li>
-                                <a href='contact3.html'>All Posts</a>
+                                <a href='{{route('posts.index')}}'>All Posts</a>
                             </li>
                             <li>
-                                <a href='contact4.html'>Add Post</a>
+                                <a href='{{route('posts.create')}}'>Add Post</a>
                             </li>
                         </ul>
                     </li>
@@ -123,7 +123,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="widgets.html">
+                        <a href="{{route('comments.index')}}">
                             <span class="has-icon">
                                 <i class="icon-style"></i>
                             </span>

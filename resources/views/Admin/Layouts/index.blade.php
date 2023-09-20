@@ -77,6 +77,6 @@
 @include('Admin.Includes.js')
 @include('sweetalert::alert')
 </body>
-
+@yield('js')
 <!-- Mirrored from bootstrap.gallery/elite-admin-dashboard/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Jun 2021 21:13:38 GMT -->
 </html>

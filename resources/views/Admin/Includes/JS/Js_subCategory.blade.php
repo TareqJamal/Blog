@@ -65,6 +65,7 @@
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'name',name:'name'},
+                {data: 'description',name:'description'},
                 {data: 'status',name:'status'},
                 {data: 'parent_id',name:'status'},
                 {data: 'image', name: 'image'},
